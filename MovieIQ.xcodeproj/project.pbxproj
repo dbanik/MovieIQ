@@ -13,6 +13,7 @@
 		B6ADB8CC1D22F9CF00B24C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6ADB8CB1D22F9CF00B24C92 /* Assets.xcassets */; };
 		B6ADB8CF1D22F9CF00B24C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6ADB8CD1D22F9CF00B24C92 /* LaunchScreen.storyboard */; };
 		B6ADB8DA1D22F9CF00B24C92 /* MovieIQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADB8D91D22F9CF00B24C92 /* MovieIQTests.swift */; };
+		B6ADB8E51D23344200B24C92 /* UpdateIQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADB8E41D23344200B24C92 /* UpdateIQViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		B6ADB8D51D22F9CF00B24C92 /* MovieIQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieIQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6ADB8D91D22F9CF00B24C92 /* MovieIQTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieIQTests.swift; sourceTree = "<group>"; };
 		B6ADB8DB1D22F9CF00B24C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6ADB8E41D23344200B24C92 /* UpdateIQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateIQViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				B6ADB8C41D22F9CF00B24C92 /* AppDelegate.swift */,
 				B6ADB8C61D22F9CF00B24C92 /* ViewController.swift */,
+				B6ADB8E41D23344200B24C92 /* UpdateIQViewController.swift */,
 				B6ADB8C81D22F9CF00B24C92 /* Main.storyboard */,
 				B6ADB8CB1D22F9CF00B24C92 /* Assets.xcassets */,
 				B6ADB8CD1D22F9CF00B24C92 /* LaunchScreen.storyboard */,
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6ADB8E51D23344200B24C92 /* UpdateIQViewController.swift in Sources */,
 				B6ADB8C71D22F9CF00B24C92 /* ViewController.swift in Sources */,
 				B6ADB8C51D22F9CF00B24C92 /* AppDelegate.swift in Sources */,
 			);
@@ -388,6 +392,7 @@
 				B6ADB8E01D22F9CF00B24C92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6ADB8E11D22F9CF00B24C92 /* Build configuration list for PBXNativeTarget "MovieIQTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +401,7 @@
 				B6ADB8E31D22F9CF00B24C92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
