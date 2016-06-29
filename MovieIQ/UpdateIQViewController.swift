@@ -35,7 +35,7 @@ class UpdateIQViewController: UIViewController, UITextFieldDelegate, UITableView
     // MARK: TextField Delagate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let text = self.titleTextField.text {
-            self.movieTitle = text;
+            self.movieTitle = text.stringByReplacingOccurrencesOfString(" ", withString: "+");
             self.fetchMoviedetails();
         }
         self.titleTextField.text = "";
@@ -61,7 +61,11 @@ class UpdateIQViewController: UIViewController, UITextFieldDelegate, UITableView
             }
             else if let httpResponse = response as? NSHTTPURLResponse {
                 if httpResponse.statusCode == 200 {
-                    self.populateView(data)
+                    if data != nil {
+                        if let result = self.parseJSONData(data) {
+                            self.fetchMoviePoster(result);
+                        }
+                    }
                 }
             }
         }
@@ -69,27 +73,59 @@ class UpdateIQViewController: UIViewController, UITextFieldDelegate, UITableView
         dataTask?.resume();
     }
     
-    // MARK: Parsing & Population
-    func populateView(data: NSData!) -> Void {
+    func fetchMoviePoster(dict: NSDictionary!) {
+        var posterURLStr: NSString = (dict["Poster"] as? NSString)!;
+        posterURLStr = posterURLStr.stringByReplacingOccurrencesOfString("http", withString: "https");
+        let posterURL = NSURL(string: posterURLStr as String);
         
+        var downloadTask: NSURLSessionDownloadTask?
+        downloadTask = NSURLSession.sharedSession().downloadTaskWithURL(posterURL!, completionHandler: { (location, response, error) in
+            
+            if let error = error {
+                print(error.localizedDescription);
+                dispatch_async(dispatch_get_main_queue()) {
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+                }
+            }
+            else if let httpResponse = response as? NSHTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                    let posterData: NSData = NSData(contentsOfURL: location!)!;
+                    let poster: UIImage = UIImage(data: posterData)!;
+                    self.populateView(dict, img: poster);
+                }
+            }
+        });
+        
+        downloadTask?.resume();
+    }
+    
+    // MARK: Parsing
+    func parseJSONData(data: NSData!) -> NSDictionary? {
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(rawValue: 0));
             guard let result :NSDictionary = json as? NSDictionary else {
                 print("Not a Dictionary")
-                return
+                return nil;
             }
-            print("JSONDictionary! \(result)")
             
-            dispatch_async(dispatch_get_main_queue()) {
-                self.directorLabel.text = result["Director"] as? String;
-                self.yearLabel.text = result["Year"] as? String;
-                let actor :NSString = (result["Actors"] as? NSString)!;
-                self.actorList = actor.componentsSeparatedByString(",");
-                self.actorListTableView.reloadData();
-            }
+            return result;
         }
         catch let error as NSError {
-            print("\(error)")
+            print("\(error)");
+            return nil;
+        }
+    }
+    
+    // MARK: Populate UI
+    func populateView(result: NSDictionary, img: UIImage) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.directorLabel.text = result["Director"] as? String;
+            self.yearLabel.text = result["Year"] as? String;
+            let actor :NSString = (result["Actors"] as? NSString)!;
+            self.actorList = actor.componentsSeparatedByString(",");
+            self.actorListTableView.reloadData();
+            self.posterView.image = img;
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
         }
     }
     

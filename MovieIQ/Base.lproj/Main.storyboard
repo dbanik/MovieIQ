@@ -141,22 +141,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RJf-8F-udf">
-                                <rect key="frame" x="20" y="171" width="153" height="158"/>
+                                <rect key="frame" x="20" y="171" width="415" height="158"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="153" id="CgF-up-g7i"/>
                                     <constraint firstAttribute="height" constant="158" id="kHG-gn-qRV"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="Actor Cell" textLabel="HEQ-2T-A03" style="IBUITableViewCellStyleDefault" id="kr5-Ie-EyF">
-                                        <rect key="frame" x="0.0" y="28" width="153" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="415" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kr5-Ie-EyF" id="RXb-Pf-U61">
-                                            <rect key="frame" x="0.0" y="0.0" width="153" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="415" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HEQ-2T-A03">
-                                                    <rect key="frame" x="15" y="0.0" width="123" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="385" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -198,6 +197,7 @@
                             <constraint firstItem="9R1-W3-GhP" firstAttribute="leading" secondItem="TWc-sZ-6Bk" secondAttribute="trailing" constant="13" id="Dqw-oq-pSa"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ZZH-Og-Ukm" secondAttribute="leading" id="FCW-Tu-hyy"/>
                             <constraint firstItem="lGe-6t-AEJ" firstAttribute="centerY" secondItem="W4G-rr-xaz" secondAttribute="centerY" id="FpK-jC-lV6"/>
+                            <constraint firstItem="FZL-aH-bso" firstAttribute="leading" secondItem="RJf-8F-udf" secondAttribute="trailing" constant="20" id="Kz6-Kq-RaQ"/>
                             <constraint firstItem="9R1-W3-GhP" firstAttribute="trailing" secondItem="mIH-bD-9rp" secondAttribute="trailing" id="Muv-rR-zaK"/>
                             <constraint firstItem="W4G-rr-xaz" firstAttribute="top" secondItem="jTw-Rc-0Am" secondAttribute="bottom" constant="14" id="Px9-Yy-Gyg"/>
                             <constraint firstItem="lGe-6t-AEJ" firstAttribute="leading" secondItem="W4G-rr-xaz" secondAttribute="trailing" constant="8" id="Sfv-75-l03"/>
